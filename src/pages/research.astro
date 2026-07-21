@@ -14,8 +14,9 @@ const papers = (await getCollection('research')).sort(
 			<article class="paper">
 				<h2>{paper.data.title}</h2>
 				<p class="meta">
-					{paper.data.authors} &mdash; {paper.data.venue},{' '}
-					{paper.data.date.getFullYear()}
+					{paper.data.authors}
+					<br />
+					{paper.data.venue}, {paper.data.date.getFullYear()}
 				</p>
 				<p>{paper.data.abstract}</p>
 				<p class="links">
