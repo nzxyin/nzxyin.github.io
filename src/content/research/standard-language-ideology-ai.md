@@ -1,6 +1,6 @@
 ---
 title: "Standard Language Ideology in AI-Generated Language"
-authors: "Genevieve Smith, Eve Fleisig, Ishita Rustagi, Xavier Yin"
+authors: "Genevieve Smith, Eve Fleisig, Ishita Rustagi, <strong>Xavier Yin</strong>"
 venue: "2026 ACM Conference on Fairness, Accountability, and Transparency (FAccT '26)"
 date: 2026-06-25
 doiUrl: "https://doi.org/10.1145/3805689.3806504"

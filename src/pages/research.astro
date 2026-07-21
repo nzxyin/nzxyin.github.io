@@ -14,7 +14,13 @@ const papers = (await getCollection('research')).sort(
 			<article class="paper">
 				<h2>{paper.data.title}</h2>
 				<p class="meta">
-					{paper.data.authors}
+					<span set:html={paper.data.authors} />
+					{paper.data.authorNote && (
+						<>
+							<br />
+							<span class="author-note">{paper.data.authorNote}</span>
+						</>
+					)}
 					<br />
 					{paper.data.venue}, {paper.data.date.getFullYear()}
 				</p>
@@ -50,5 +56,10 @@ const papers = (await getCollection('research')).sort(
 		margin-right: 1rem;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 		font-size: 0.9rem;
+	}
+
+	.author-note {
+		font-size: 0.85rem;
+		font-style: italic;
 	}
 </style>

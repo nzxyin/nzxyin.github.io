@@ -16,6 +16,7 @@ const research = defineCollection({
   schema: z.object({
     title: z.string(),
     authors: z.string(),
+    authorNote: z.string().optional(),
     venue: z.string(),
     date: z.coerce.date(),
     abstract: z.string(),
