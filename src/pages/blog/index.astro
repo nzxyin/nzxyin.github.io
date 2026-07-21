@@ -7,7 +7,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 );
 ---
 
-<Layout title="Blog | Your Name" description="Writing on research, engineering, and more.">
+<Layout title="Blog | Xavier Yin" description="Writing on research, engineering, and more.">
 	<h1>Blog</h1>
 	{
 		posts.map((post) => (
