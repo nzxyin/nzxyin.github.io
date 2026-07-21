@@ -16,6 +16,14 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<script is:inline>
+			(function () {
+				var stored = localStorage.getItem('theme');
+				if (stored === 'light' || stored === 'dark') {
+					document.documentElement.setAttribute('data-theme', stored);
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<header>
@@ -34,6 +42,10 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 						<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ" aria-label="Google Scholar" title="Google Scholar">
 							<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-7 8.09V14c0 1.66 3.13 3 7 3s7-1.34 7-3v-2.91l-7 3.82-7-3.82Z" /></svg>
 						</a>
+						<button id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+							<svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg>
+							<svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.7 14.9A9 9 0 1 1 9.1 3.3a7 7 0 0 0 11.6 11.6Z" /></svg>
+						</button>
 					</span>
 				</div>
 			</nav>
@@ -57,6 +69,21 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 				</span>
 			</div>
 		</footer>
+		<script is:inline>
+			(function () {
+				function effectiveTheme() {
+					var stored = localStorage.getItem('theme');
+					if (stored === 'light' || stored === 'dark') return stored;
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				}
+				var btn = document.getElementById('theme-toggle');
+				btn.addEventListener('click', function () {
+					var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+					localStorage.setItem('theme', next);
+					document.documentElement.setAttribute('data-theme', next);
+				});
+			})();
+		</script>
 	</body>
 </html>
 
@@ -71,13 +98,21 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 	}
 
 	@media (prefers-color-scheme: dark) {
-		:root {
+		:root:not([data-theme='light']) {
 			--color-bg: #111113;
 			--color-text: #e8e8e8;
 			--color-muted: #9a9a9a;
 			--color-border: #2a2a2e;
 			--color-accent: #6ea8fe;
 		}
+	}
+
+	:root[data-theme='dark'] {
+		--color-bg: #111113;
+		--color-text: #e8e8e8;
+		--color-muted: #9a9a9a;
+		--color-border: #2a2a2e;
+		--color-accent: #6ea8fe;
 	}
 
 	* {
@@ -153,6 +188,44 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 
 	.icon-links a:hover {
 		color: var(--color-accent);
+	}
+
+	#theme-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		color: var(--color-muted);
+		font: inherit;
+	}
+
+	#theme-toggle:hover {
+		color: var(--color-accent);
+	}
+
+	#theme-toggle .icon-sun {
+		display: none;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root:not([data-theme='light']) #theme-toggle .icon-moon {
+			display: none;
+		}
+
+		:root:not([data-theme='light']) #theme-toggle .icon-sun {
+			display: inline-flex;
+		}
+	}
+
+	:root[data-theme='dark'] #theme-toggle .icon-moon {
+		display: none;
+	}
+
+	:root[data-theme='dark'] #theme-toggle .icon-sun {
+		display: inline-flex;
 	}
 
 	main {
