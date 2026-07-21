@@ -24,9 +24,17 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 				<div class="links">
 					<a href="/research">Research</a>
 					<a href="/blog">Blog</a>
-					<a href="mailto:nzxyin@cmu.edu">Email</a>
-					<a href="https://github.com/nzxyin">GitHub</a>
-					<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ">Scholar</a>
+					<span class="icon-links">
+						<a href="mailto:nzxyin@cmu.edu" aria-label="Email" title="Email">
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 6 10 7 10-7" /></svg>
+						</a>
+						<a href="https://github.com/nzxyin" aria-label="GitHub" title="GitHub">
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.24.78-.54 0-.27-.01-1.13-.02-2.04-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.73 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.65.79.54 4.5-1.5 7.76-5.76 7.76-10.78C23.02 5.24 18.27.5 12 .5Z" /></svg>
+						</a>
+						<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ" aria-label="Google Scholar" title="Google Scholar">
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-7 8.09V14c0 1.66 3.13 3 7 3s7-1.34 7-3v-2.91l-7 3.82-7-3.82Z" /></svg>
+						</a>
+					</span>
 				</div>
 			</nav>
 		</header>
@@ -34,15 +42,20 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 			<slot />
 		</main>
 		<footer>
-			<p>
-				&copy; {new Date().getFullYear()} Xavier Yin
-				&middot;
-				<a href="mailto:nzxyin@cmu.edu">Email</a>
-				&middot;
-				<a href="https://github.com/nzxyin">GitHub</a>
-				&middot;
-				<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ">Google Scholar</a>
-			</p>
+			<div class="footer-inner">
+				<p>&copy; {new Date().getFullYear()} Xavier Yin</p>
+				<span class="icon-links">
+					<a href="mailto:nzxyin@cmu.edu" aria-label="Email" title="Email">
+						<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 6 10 7 10-7" /></svg>
+					</a>
+					<a href="https://github.com/nzxyin" aria-label="GitHub" title="GitHub">
+						<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.24.78-.54 0-.27-.01-1.13-.02-2.04-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.73 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.65.79.54 4.5-1.5 7.76-5.76 7.76-10.78C23.02 5.24 18.27.5 12 .5Z" /></svg>
+					</a>
+					<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ" aria-label="Google Scholar" title="Google Scholar">
+						<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-7 8.09V14c0 1.66 3.13 3 7 3s7-1.34 7-3v-2.91l-7 3.82-7-3.82Z" /></svg>
+					</a>
+				</span>
+			</div>
 		</footer>
 	</body>
 </html>
@@ -120,6 +133,23 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 		color: var(--color-accent);
 	}
 
+	.icon-links {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.9rem;
+		margin-left: 1.5rem;
+	}
+
+	.icon-links a {
+		display: inline-flex;
+		margin-left: 0 !important;
+		color: var(--color-muted);
+	}
+
+	.icon-links a:hover {
+		color: var(--color-accent);
+	}
+
 	main {
 		flex: 1;
 		width: 100%;
@@ -135,10 +165,19 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 		color: var(--color-muted);
 	}
 
-	footer p {
+	.footer-inner {
 		max-width: var(--content-width);
 		margin: 0 auto;
 		padding: 1.25rem 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.footer-inner p {
+		margin: 0;
 	}
 
 	h1, h2, h3 {
