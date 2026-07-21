@@ -24,6 +24,9 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 				<div class="links">
 					<a href="/research">Research</a>
 					<a href="/blog">Blog</a>
+					<a href="mailto:nzxyin@cmu.edu">Email</a>
+					<a href="https://github.com/nzxyin">GitHub</a>
+					<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ">Scholar</a>
 				</div>
 			</nav>
 		</header>
@@ -31,7 +34,15 @@ const { title, description = 'Personal site and research portfolio.' } = Astro.p
 			<slot />
 		</main>
 		<footer>
-			<p>&copy; {new Date().getFullYear()} Xavier Yin</p>
+			<p>
+				&copy; {new Date().getFullYear()} Xavier Yin
+				&middot;
+				<a href="mailto:nzxyin@cmu.edu">Email</a>
+				&middot;
+				<a href="https://github.com/nzxyin">GitHub</a>
+				&middot;
+				<a href="https://scholar.google.com/citations?hl=en&user=ha9yXrYAAAAJ">Google Scholar</a>
+			</p>
 		</footer>
 	</body>
 </html>
