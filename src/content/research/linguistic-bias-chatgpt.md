@@ -1,8 +1,9 @@
 ---
 title: "Linguistic Bias in ChatGPT: Language Models Reinforce Dialect Discrimination"
 authors: "Eve Fleisig, Genevieve Smith, Madeline Bossi, Ishita Rustagi, Xavier Yin, Dan Klein"
-venue: "arXiv preprint arXiv:2406.08818"
-date: 2024-06-13
+venue: "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+date: 2024-11-12
 abstract: "We present a large-scale study of linguistic bias exhibited by ChatGPT covering ten dialects of English (Standard American English, Standard British English, and eight widely spoken non-\"standard\" varieties from around the world). We prompted GPT-3.5 Turbo and GPT-4 with text by native speakers of each variety and analyzed the responses via detailed linguistic feature annotation and native speaker evaluation. We find that the models default to \"standard\" varieties of English; based on evaluation by native speakers, we also find that model responses to non-\"standard\" varieties consistently exhibit a range of issues: stereotyping (19% worse than for \"standard\" varieties), demeaning content (25% worse), lack of comprehension (9% worse), and condescending responses (15% worse). GPT-4 improves on GPT-3.5 in terms of comprehension, warmth, and friendliness, but also exhibits a marked increase in stereotyping (+18%). The results indicate that GPT-3.5 Turbo and GPT-4 can perpetuate linguistic discrimination toward speakers of non-\"standard\" varieties."
-pdfUrl: "https://arxiv.org/pdf/2406.08818"
+pdfUrl: "https://aclanthology.org/2024.emnlp-main.750.pdf"
+doiUrl: "https://doi.org/10.18653/v1/2024.emnlp-main.750"
 ---
