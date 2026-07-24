@@ -21,7 +21,10 @@ const research = defineCollection({
     date: z.coerce.date(),
     abstract: z.string(),
     pdfUrl: z.string().optional(),
+    absUrl: z.string().optional(),
     codeUrl: z.string().optional(),
+    websiteUrl: z.string().optional(),
+    demoUrl: z.string().optional(),
     doiUrl: z.string().optional(),
   }),
 });
