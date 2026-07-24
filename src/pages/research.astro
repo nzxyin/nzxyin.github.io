@@ -26,9 +26,12 @@ const papers = (await getCollection('research')).sort(
 				</p>
 				<p>{paper.data.abstract}</p>
 				<p class="links">
-					{paper.data.pdfUrl && <a href={paper.data.pdfUrl}>PDF</a>}
-					{paper.data.codeUrl && <a href={paper.data.codeUrl}>Code</a>}
 					{paper.data.doiUrl && <a href={paper.data.doiUrl}>DOI</a>}
+					{!paper.data.doiUrl && paper.data.pdfUrl && <a href={paper.data.pdfUrl}>PDF</a>}
+					{paper.data.absUrl && <a href={paper.data.absUrl}>Abs</a>}
+					{paper.data.codeUrl && <a href={paper.data.codeUrl}>Code</a>}
+					{paper.data.websiteUrl && <a href={paper.data.websiteUrl}>Website</a>}
+					{paper.data.demoUrl && <a href={paper.data.demoUrl}>Demo</a>}
 				</p>
 			</article>
 		))
